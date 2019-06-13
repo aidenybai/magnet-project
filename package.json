@@ -1,0 +1,31 @@
+{
+  "name": "tesseract-ocr-test",
+  "version": "0.0.1",
+  "description": "Test to learn tesseract ocr in NodeJS",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ocr",
+    "tesseract",
+    "nodejs"
+  ],
+  "author": "Aiden Bai",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2"
+  }
+}
