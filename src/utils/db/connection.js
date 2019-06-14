@@ -4,7 +4,7 @@ import log from './../logger/log.js'
 export default (dbURL, options = {}) => {
   connect(dbURL, options)
     .then(db => {
-      log(`Successfully connected to ${dbURL}.`, 'API');
+      log(`Connected to ${dbURL}.`, 'API');
       return db;
     })
     .catch(err => {
