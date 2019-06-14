@@ -8,8 +8,8 @@ import tokenBearer from 'express-bearer-token';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import connect from './utils/db/Connection.js';
-import log from './utils/logger/Log.js';
+import connect from './utils/db/connection.js';
+import log from './utils/logger/log.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
