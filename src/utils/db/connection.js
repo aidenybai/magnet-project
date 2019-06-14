@@ -1,5 +1,5 @@
 import { connect } from 'mongoose';
-import log from './../utils/logger/index.js'
+import log from './../logger/log.js'
 
 export default (dbURL, options = {}) => {
   connect(dbURL, options)
