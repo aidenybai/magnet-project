@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 const TokenSchema = new Schema({
-  token: String
+  token: String,
 });
 
 const Token = model('Token', TokenSchema);

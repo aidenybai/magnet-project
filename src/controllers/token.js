@@ -7,8 +7,9 @@ const router = Router();
 
 router.get('/', async (req, res) => {
   const apiToken = await token();
-  
-  tokenModel.create({ token: apiToken })
+
+  tokenModel
+    .create({ token: apiToken })
     .then(() => res.status(200).json({ code: 200, message: apiToken }))
     .catch(() => res.status(500));
 });

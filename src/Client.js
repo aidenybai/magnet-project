@@ -20,7 +20,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const db = connect(process.env.DB_URL, { useNewUrlParser: true });
+const db = connect(
+  process.env.DB_URL,
+  { useNewUrlParser: true }
+);
 
 class Client {
   constructor(options = {}) {
@@ -38,14 +41,16 @@ class Client {
     app.use(compression());
     app.use(cors());
     app.use(tokenBearer());
-    app.use(rateLimit({
-      windowMs: 10000,
-      max: 50,
-      headers: true,
-      handler: (req, res) => {
-        res.status(429).json({ code: 429, message: 'Too many requests' });
-      }
-    }));   
+    app.use(
+      rateLimit({
+        windowMs: 10000,
+        max: 50,
+        headers: true,
+        handler: (req, res) => {
+          res.status(429).json({ code: 429, message: 'Too many requests' });
+        },
+      })
+    );
 
     app.use('/api/v1/token', tokenRoute);
     app.use('/api/v1/translate', auth, translateRoute);
@@ -55,6 +60,6 @@ class Client {
       this.log(`Listening on port ${port}`, 'API');
     });
   }
-};
+}
 
 export default Client;

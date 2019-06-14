@@ -1,16 +1,17 @@
 {
-  "name": "tesseract-ocr-test",
+  "name": "magnet-project",
   "version": "0.0.1",
-  "description": "Test to learn tesseract ocr in NodeJS",
+  "description": "Our 19-20 Magnet Project API, built with NodeJS, Express, and MongoDB.",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist",
-    "serve": "node dist/index.js"
+    "serve": "node dist/index.js",
+    "clean": "prettier '{,!(node_modules)/**/}*.js'"
   },
   "keywords": [
-    "ocr",
-    "tesseract",
+    "magnet",
+    "project",
     "nodejs"
   ],
   "author": "Aiden Bai",
