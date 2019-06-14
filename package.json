@@ -6,8 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist",
-    "serve": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "node dist/index.js"
   },
   "keywords": [
     "ocr",
@@ -17,6 +16,7 @@
   "author": "Aiden Bai",
   "license": "MIT",
   "dependencies": {
+    "@vitalets/google-translate-api": "^2.8.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -28,7 +28,8 @@
     "helmet": "^3.18.0",
     "mongoose": "^5.5.15",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "uid-generator": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
