@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Magnet Project Endpoint Tester</title>
+  </head>
+  <body>
+    <div class="container m-5">
+      <form action="/api/v1/translate" target="_blank" method="POST" id="form">
+        <div class="form-group">
+          <input type="text" class="form-control" name="text" id="text" placeholder="Enter text" aria-describedby="textArea" required>
+          <small id="textArea" class="form-text text-muted">This text will be automatically autocorrected if spelled wrong.</small>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" name="to" id="to" placeholder="Enter target language" required>
+          <small id="textArea" class="form-text text-muted">Targeted language must be in ISO 639-1.</small>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" name="from" id="from" placeholder="Enter current language">
+          <small id="textArea" class="form-text text-muted">Current language must be in ISO 639-1.</small>
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-control" name="access_token" id="access_token" placeholder="Enter token" required>
+          <small id="textArea" class="form-text text-muted">Authentication Token must be in UUID form.</small>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-raised">Translate</button>
+      </form>
+    </div>
+
+    <script src="./js/client.js"></script>
+  </body>
+</html>

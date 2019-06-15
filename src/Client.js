@@ -7,11 +7,13 @@ import rateLimit from 'express-rate-limit';
 import tokenBearer from 'express-bearer-token';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import { join } from 'path';
 
 import connect from './utils/db/connection.js';
 import log from './utils/logger/log.js';
 import auth from './utils/middlewares/auth.js';
 
+import globalRoute from './controllers/global.js';
 import apiRoute from './controllers/api.js';
 import tokenRoute from './controllers/token.js';
 import translateRoute from './controllers/translate.js';
@@ -34,6 +36,10 @@ class Client {
   start(port = this.options.port || process.env.PORT || 3000) {
     app.enable('trust proxy', true);
 
+    app.disable('view cache');
+    app.set('view engine', 'ejs');
+    app.set('views', join(__dirname, './../views'));
+
     app.use(morgan('combined'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,9 +58,11 @@ class Client {
       })
     );
 
+    app.use(express.static('public'));
     app.use('/api/v1/token', tokenRoute);
     app.use('/api/v1/translate', auth, translateRoute);
     app.use('/api/v1', apiRoute);
+    app.use('/', globalRoute);
 
     app.listen(port, () => {
       this.log(`Listening on port ${port}`, 'API');
